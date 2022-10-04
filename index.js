@@ -30,6 +30,7 @@ app.get("/", (req, res) => {
 });
 
   function getToken(code) {
+   try {
     const data = {
         client_id: "1026659897636560959",
         client_secret: "-XGsIvIXw34abaSPTP4qe1dbhxNsdka",
@@ -43,6 +44,9 @@ app.get("/", (req, res) => {
             console.log("data", response);
             return response.data;
         });
+   } catch(error) {
+     console.log(error);
+   }
 }
 app.get("/login", async (request, response) => {
     const code = request.query.code;
