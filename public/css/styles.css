@@ -1,0 +1,57 @@
+.uk-offcanvas-container {
+  position: unset !important;
+}
+
+.top-most {
+  z-index: 9999;
+}
+
+.my-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+  z-index: 49;
+  padding-left: 5px;
+  padding-right: 5px;
+  box-sizing: border-box;
+  font-size: 12px;
+  /* line-height: 20px; */
+  /* font-weight: 800; */
+  /* color: beige; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+}
+
+.send-fee-div {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+}
+
+.price-div {
+  -webkit-text-stroke-width: 0.25px;
+  -webkit-text-stroke-color: black;
+  color: white;
+  background-color: #0000003d;
+  border-radius: 10px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.markup-div {
+  -webkit-text-stroke-width: 0.25px;
+  -webkit-text-stroke-color: black;
+  color: white;
+  background-color: #0000003d;
+  border-radius: 10px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
