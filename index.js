@@ -29,10 +29,12 @@ app.get("/", (req, res) => {
   res.send("Working!");
 });
 
+
 app.get("/auth/discord", (request, response) => {
+  const code = request.query.code;
   console.log(request.url, request.params, request.query, request.headers);
   // return response.sendFile("dashboard.html", { root: "." });
-  response.redirect("https://play.upland.me/");
+  response.redirect(`https://play.upland.me/?tokenType=Bearer&accessToken=${code}`);
 });
 
 const PORT = process.env.PORT || 3000;
