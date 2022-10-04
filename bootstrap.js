@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   setTimeout(() => {
     console.log("Bootstrapping plugin...");
 
-    const baseUrl = "http://localhost:3000/static/";
+    const baseUrl = "https://seahorse-app-4yoyu.ondigitalocean.app/static/";
 
     const stylesheetUrls = [
       "https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/css/uikit.min.css",
