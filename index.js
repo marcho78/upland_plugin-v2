@@ -29,13 +29,36 @@ app.get("/", (req, res) => {
   res.send("Working!");
 });
 
+  function getToken(code) {
+    const data = {
+        client_id: "1026659897636560959",
+        client_secret: "-XGsIvIXw34abaSPTP4qe1dbhxNsdka",
+        grant_type: "authorization_code",
+        code: code,
+        redirect_uri: "https://seahorse-app-4yoyu.ondigitalocean.app/auth/discord/",
+    };
+    return axios
+        .post(`https://discord.com/api/v10/oauth2/token`, data, {
+            headers: "'Content-Type': 'application/x-www-form-urlencoded'",
+        })
+        .then((response) => {
+            return response.data;
+        });
+}
 
-app.get("/auth/discord", (request, response) => {
-  const code = request.query.code;
-  console.log(request.url, request.params, request.query, request.headers);
-  // return response.sendFile("dashboard.html", { root: "." });
-  response.redirect(`https://play.upland.me/?token_type=Bearer&access_token=${code}`);
+
+
+app.get("/auth/discord", async (request, response) => {
+    const code = request.query.code;
+    console.log(request.url, request.params, request.query, request.headers);
+    // return response.sendFile("dashboard.html", { root: "." });
+    const authData = await getToken(code);
+    const accessToken = authData.access_token;
+    response.redirect(
+        "https://play.upland.me/#token_type=Bearer&access_token=" + accessToken
+    );
 });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
