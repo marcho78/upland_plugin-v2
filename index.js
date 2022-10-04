@@ -35,18 +35,16 @@ app.get("/", (req, res) => {
         client_secret: "-XGsIvIXw34abaSPTP4qe1dbhxNsdka",
         grant_type: "authorization_code",
         code: code,
-        redirect_uri: "https://play.upland.me/",
+        redirect_uri: "https://seahorse-app-4yoyu.ondigitalocean.app/login",
     };
     return axios
-        .post(`https://discord.com/api/v10/oauth2/token`, data, {
-            headers: "'Content-Type': 'application/x-www-form-urlencoded'",
-        })
+        .post(`https://discord.com/api/v10/oauth2/token`, data)
         .then((response) => {
             console.log("data", response);
             return response.data;
         });
 }
-app.get("/auth/discord", async (request, response) => {
+app.get("/login", async (request, response) => {
     const code = request.query.code;
     console.log(request.url, request.params, request.query, request.headers);
     // return response.sendFile("dashboard.html", { root: "." });
