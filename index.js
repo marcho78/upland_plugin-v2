@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
         client_secret: "-XGsIvIXw34abaSPTP4qe1dbhxNsdka",
         grant_type: "authorization_code",
         code: code,
-        redirect_uri: "https://seahorse-app-4yoyu.ondigitalocean.app/login",
+        redirect_uri: "https://seahorse-app-4yoyu.ondigitalocean.app/login/",
     };
     return axios
         .post(`https://discord.com/api/v10/oauth2/token`, data)
